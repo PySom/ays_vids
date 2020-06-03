@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>StudyMATE</title>
+    <link rel="shortcut icon" href="img/icons-192.png">
+    <link rel="manifest" href="./manifest.json">
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/site.css" rel="stylesheet">
+    <link href="assets/all.css" rel="stylesheet">
+    <link href="css/popup-box.css" rel="stylesheet">
+ 
+
+</head>
+
+<body class="body">
+<div class="page-wrapper chiller-theme toggled">
+  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+    <i class="fas fa-bars"></i>
+  </a>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="index.html">Home Page</a>
+        <div id="close-sidebar">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="sidebar-header">
+          <div class="user-pic">
+              <img class="img-responsive user-profile-pix img-rounded" src="images/user.jpg"
+                alt="User picture">
+          </div>
+          <div class="p-image">
+            <i class="fa fa-camera upload-button"></i>
+              <input class="file-upload" type="file" accept="image/*"/>
+          </div>
+        <!-- <div class="user-pic">
+          <img class="img-responsive img-rounded" src="images/user.jpg"
+            alt="User picture">
+        </div> -->
+        <div class="user-info">
+          <span class="user-name">StudyMATE User
+            <i class="fa fa-edit edit-name" onclick="editName()"></i>
+          </span>
+          
+          <span class="user-role">Student</span>
+          <span class="user-status">
+            <i class="fa fa-circle"></i>
+            <span>Active</span>
+          </span>
+        </div>
+      </div>
+      <!-- sidebar-header  -->
+      <div class="sidebar-search">
+        <div>
+          <div class="input-group">
+            <input type="text" class="form-control search-menu" id="inputService" onkeyup="callUpTags(this, event)" placeholder="Search...">
+            <div class="input-group-append">
+              <span class="input-group-text" id="searchButton">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </span>
+            </div>
+            <ul class="list-group" id="serviceResult"></ul>
+            <div id="errorArea" class="d-none text-danger">Please select from the list</div>
+          </div>
+        </div>
+      </div>
+      <!-- sidebar-search  -->
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>General</span>
+          </li>
+          <li class="sidebar-dropdown" id="_videos">
+            <a href="#">
+              <i class="fas fa-video"></i>
+              <span>Videos</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li class="sidebar-dropdown-inner">
+                  <a href="#">JSS</a>
+                  <div class="sidebar-submenu-inner">
+                      <ul id="_jss">
+
+                      </ul> 
+                  </div>
+                </li>
+                <li class="sidebar-dropdown-inner">
+                  <a href="#">SSS</a>
+                  <div class="sidebar-submenu-inner">
+                      <ul id="_sss">
+
+                      </ul>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-chart-line"></i>
+              <span>Practice questions</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul id="_questions">
+                
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
+    </div>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a href="docs.html">
+        <span class="badge badge-pill badge-warning notification">Documentation and Usage</span>
+      </a>
+      <!-- <a href="#">
+        <i class="fa fa-envelope"></i>
+        <span class="badge badge-pill badge-success notification">7</span>
+      </a>
+      <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a href="#">
+        <i class="fa fa-power-off"></i>
+      </a> -->
+    </div>
+  </nav>
+  <!-- sidebar-wrapper  -->
+  <main class="page-content">
+    <div class="container-fluid">
+      <h2 class="text-uppercase">Frequently asked questions</h2>
+      <dl>
+        <dt>
+          How can I personalize my app?
+        </dt>
+        <dd>
+          From the sidebar, you can add/edit your image by tapping the camera icon and selecting the image of your choice.
+          <p>In addition, you can add your name to the app, simply tap on the "pen-book" icon. Fill in your name and select "save". Tap on save without writing anything if you want to cancel from typing.</p>
+        </dd>
+        <dt>
+          How do I watch a video?
+        </dt>
+        <dd>
+          From the sidebar, select the video of your choice or search from the search bar.
+        </dd>
+        <dt>
+          How do I learn from questions?
+        </dt>
+        <dd>
+          Select the course of your choice from the side bar and start learning.
+        </dd>
+        <dt>
+          My course says 404 error!
+        </dt>
+        <dd>
+          That's embaracing, pull the application to refresh again. It should be fine
+        </dd>
+        <dt>
+          The application cannot start
+        </dt>
+        <dd>
+          Restart the application. If it is solved, happy learning.
+          <p>However, locate the app "KWS" on your device. Tap on the "globe" icon to restart the app engine</p>
+        </dd>
+        <dt>
+          I want to take a break, can I know where I left off?
+        </dt>
+        <dd>
+          Yes you can. As long as you are on the application, the folder of the video you currently watched will be highlighted in white while the last video you watched will be highlighted in blue.
+          <p>The study pack retains your last course even after you close the application.</p>
+        </dd>
+        <dt>
+          What are the modes in the Study Pack?
+        </dt>
+        <dd>
+          There are three (3) modes.
+          <dl>
+            <dt>
+              Learn mode
+            </dt>
+            <dd>
+              In this mode, you get to answer the questions and get the correct answer within two (2) trials. You will be able to see an interactive tutorial of each question covered.
+            </dd>
+            <dt>
+              Time mode
+            </dt>
+            <dd>
+              This simulates a standard examination condition where you examine at your own pace. You can always set the timer for each study pack.
+            </dd>
+            <dt>
+              Freeform mode
+            </dt>
+            <dd>
+              This is similar to the time mode only without the timer.
+            </dd>
+
+          </dl>
+        </dd>
+        <dt>
+          The videos keep restarting, what do I do.
+        </dt>
+        <dd>
+          Not your fault dear. Kindly watch the video in normal mode and avoid <i>full screen view</i>
+        </dd>
+        <dt>
+          I cannot see any app icon to launch the app
+        </dt>
+        <dd>
+          Kindly open chrome browser and type the url <b>"localhost:8080" or "0.0.0.0:8080"</b>. <br/>If the app does not come on, open "KWS Pro" app on your device and tap the "globe" icon to restart the app.
+        </dd>
+        <dt>
+          Golden Rule
+        </dt>
+        <dd>
+          When the application malfunctions, restart <b>"KWS PRO"</b> app from the device.
+          <p>To do this, locate the app icon on the device called "KWS PRO". Click to launch. Tap on the globe icon to stop the app and tap again to start.</p>
+        </dd>
+      </dl>
+      <p>Happy learning!</p>
+      <span>Call: 08118505335 for support</span>
+      <!-- <h5>Use of English</h5>
+      <hr>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+          <div class="card rounded-0 p-0 shadow-sm">
+            <div class="helper-height">
+            <img src="images/eng1.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+            </div>
+            <div class="card-body text-center">
+                <h6 class="card-title">Use of English 2013</h6>
+                <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="eng/2013/index.html">Begin</a>
+                
+            </div>
+          </div>          
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+            <div class="card rounded-0 p-0 shadow-sm">
+                <div class="helper-height">
+                <img src="images/eng2.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Use of English 2012</h6>
+                    <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="eng/2012/index.html">Begin</a>
+                    
+                </div>
+            </div>          
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+            <div class="card rounded-0 p-0 shadow-sm">
+                <div class="helper-height">
+                <img src="images/eng3.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Use of English 2011</h6>
+                    <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="eng/2011/index.html">Begin</a>
+                    
+                </div>
+            </div>          
+            </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+            <div class="card rounded-0 p-0 shadow-sm">
+                <div class="helper-height">
+                <img src="images/eng4.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Use of English 2010</h6>
+                    <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="eng/2010/index.html">Begin</a>
+                    
+                </div>
+            </div>          
+        </div>
+      </div>
+      <h5 class="mt-4">Government</h5>
+      <hr>
+      <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+              <div class="card rounded-0 p-0 shadow-sm">
+                <div class="helper-height">
+                <img src="images/gov1.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Government 2014</h6>
+                    <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="gov/2014/index.html">Begin</a>
+                    
+                </div>
+              </div>          
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                    <img src="images/gov2.png" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Government 2013</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="gov/2013/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                    <img src="images/gov3.JPG" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Government 2012</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="gov/2012/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+                </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                    <img src="images/gov4.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Government 2011</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="gov/2011/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+            </div>
+          </div>
+      <h5 class="mt-4">Chemistry</h5>
+      <hr>
+      <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+              <div class="card rounded-0 p-0 shadow-sm">
+                <div class="helper-height">
+                    <img src="images/chem1.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                </div>
+                <div class="card-body text-center">
+                    <h6 class="card-title">Chemistry 2013</h6>
+                    <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="che/2013/index.html">Begin</a>
+                    
+                </div>
+              </div>          
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                    <img src="images/chem2.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Chemistry 2012</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="che/2012/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                        <img src="images/chem3.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Chemistry 2011</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="che/2011/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+                </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 mb-2">          
+                <div class="card rounded-0 p-0 shadow-sm">
+                    <div class="helper-height">
+                        <img src="images/chem4.jpg" class="card-img-top rounded-0" alt="Angular pro sidebar">
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Chemistry 2010</h6>
+                        <a class="popup-youtube popup-vimeo popup-gmaps btn btn-primary btn-sm" href="che/2010/index.html">Begin</a>
+                        
+                    </div>
+                </div>          
+            </div>
+          </div> -->
+    </div>
+
+  </main>
+  <!-- page-content" -->
+</div>
+<!-- page-wrapper -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/spa.js"></script>
+    <script src="js/search.js"></script>
+  </body>
+</html>
